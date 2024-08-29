@@ -1,13 +1,33 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# IDE
+.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # dependencies
-/node_modules
+node_modules
+dist
 /.pnp
 .pnp.js
-.yarn/install-state.gz
+dist-ssr
+*.local
 
 # testing
 /coverage
+.nyc_output
 
 # next.js
 /.next/
@@ -21,12 +41,24 @@
 *.pem
 
 # debug
+logs
+*.log
+pnpm-debug.log*
+lerna-debug.log*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env*
 .env*.local
+#.env.development
+# .env.production
+
+keys.json
+
+# turbo
+.turbo
 
 # vercel
 .vercel
@@ -34,3 +66,22 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+#.env
+coverage
+coverage.json
+typechain
+typechain-types
+
+# Hardhat files
+cache
+artifacts
+
+# android
+/android/.gradle
+/android/app/build
+
+# android update pushy
+/.update
+/android/*.keystore.jks
+/android/*.keystore
