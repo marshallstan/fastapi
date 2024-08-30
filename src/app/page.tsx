@@ -11,6 +11,8 @@ import {
   CommandList
 } from '@/components/ui/command'
 
+const baseUrl = process.env.NEXT_PUBLIC_BASEURL
+
 export default function Home() {
   const [input, setInput] = useState<string>('')
   const [searchResults, setSearchResults] = useState<{
@@ -21,7 +23,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       if (!input) return setSearchResults(undefined)
-      const res = await fetch(`/api/search?q=${input}`)
+      const res = await fetch(`${baseUrl}/search?q=${input}`)
       const data = (await res.json()) as { results: string[]; duration: number }
       setSearchResults(data)
     }

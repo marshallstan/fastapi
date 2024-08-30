@@ -1,7 +1,8 @@
 import { Hono } from 'hono'
 import { handle } from 'hono/vercel'
 import { env } from 'hono/adapter'
-import { Redis } from '@upstash/redis'
+import { cors } from 'hono/cors'
+import { Redis } from '@upstash/redis/cloudflare'
 
 export const runtime = 'edge'
 
@@ -12,6 +13,7 @@ type EnvConfig = {
   UPSTASH_REDIS_REST_TOKEN: string
 }
 
+app.use('/*', cors())
 app.get('/search', async (c) => {
   try {
     const { UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN } = env<EnvConfig>(c)
@@ -64,4 +66,4 @@ app.get('/search', async (c) => {
 })
 
 export const GET = handle(app)
-export default app
+export default app as never

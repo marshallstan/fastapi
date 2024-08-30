@@ -23,7 +23,6 @@ dist
 /.pnp
 .pnp.js
 dist-ssr
-*.local
 
 # testing
 /coverage
@@ -50,10 +49,10 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*
-.env*.local
-#.env.development
-# .env.production
+*.local
+# .env*.local
+.env.development
+.env.production
 
 keys.json
 
